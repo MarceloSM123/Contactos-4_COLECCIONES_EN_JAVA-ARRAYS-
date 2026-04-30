@@ -18,14 +18,15 @@ public class Directorio {
 	}
 
 	public boolean agregarContacto(Contacto contacto) {
-	    Contacto existente = buscarContacto(contacto.getCelular());
-	    if (existente == null) {
-	        contactos.add(contacto);
-	        return true;
-	    } else {
-	        return false;
-	    }
+		Contacto existente = buscarContacto(contacto.getCelular());
+		if (existente == null) {
+			contactos.add(contacto);
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 	public int obtenerCantidadContactos() {
 		int cantidad;
 		cantidad = contactos.size();
@@ -57,5 +58,17 @@ public class Directorio {
 			}
 		}
 		return null;
+	}
+
+	public boolean eliminarContacto(String numero) {
+		Contacto encontrado = buscarContacto(numero);
+
+		if (encontrado == null) {
+			return false;
+		} else {
+			contactos.remove(encontrado);
+		}
+
+		return true;
 	}
 }
