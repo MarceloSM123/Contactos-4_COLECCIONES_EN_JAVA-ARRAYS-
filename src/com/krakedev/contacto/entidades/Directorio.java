@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Directorio {
 	ArrayList<Contacto> contactos;
-	
+
 	public Directorio() {
-	    contactos = new ArrayList<Contacto>();
+		contactos = new ArrayList<Contacto>();
 	}
 
 	public ArrayList<Contacto> getContactos() {
@@ -16,27 +16,41 @@ public class Directorio {
 	public void setContactos(ArrayList<Contacto> contactos) {
 		this.contactos = contactos;
 	}
+
 	public void agregarContacto(Contacto contacto) {
-	    contactos.add(contacto);
+		contactos.add(contacto);
 	}
+
 	public int obtenerCantidadContactos() {
-	    int cantidad;
-	    cantidad = contactos.size();
-	    return cantidad;
+		int cantidad;
+		cantidad = contactos.size();
+		return cantidad;
 	}
+
 	public Contacto obtenerContacto(int posicion) {
-	    return contactos.get(posicion);
+		return contactos.get(posicion);
 	}
-	
+
 	public void imprimirContactos() {
-	    for (int i = 0; i < contactos.size(); i++) {
-	        Contacto contacto = contactos.get(i);
-	        System.out.println("Nombre: " + contacto.getNombre());
-	    }
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto contacto = contactos.get(i);
+			System.out.println("Nombre: " + contacto.getNombre());
+		}
 	}
+
 	public String recuperarNumero(int posicion) {
-	    Contacto c = contactos.get(posicion);
-	    String numero = c.getCelular();
-	    return numero;
+		Contacto c = contactos.get(posicion);
+		String numero = c.getCelular();
+		return numero;
+	}
+
+	public Contacto buscarContacto(String numero) {
+		for (int i = 0; i < contactos.size(); i++) {
+			Contacto c = contactos.get(i);
+			if (c.getCelular().equals(numero)) {
+				return c;
+			}
+		}
+		return null;
 	}
 }
