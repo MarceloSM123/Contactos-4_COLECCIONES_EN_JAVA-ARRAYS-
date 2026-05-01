@@ -50,17 +50,28 @@ public class Directorio {
 		return numero;
 	}
 
-	public Contacto buscarContacto(String numero) {
-		
+	/*public Contacto buscarContacto(String numero) {
 		for (int i = 0; i < contactos.size(); i++) {
-			System.out.println("_____ Nueva busqueda_____ ");
-			System.out.println("Posicion: " + i);
 			Contacto c = contactos.get(i);
 			if (c.getCelular().equals(numero)) {
 				return c;
 			}
 		}
 		return null;
+	}*/
+	
+	public Contacto buscarContacto(String numero) {
+
+	    Contacto encontrado = null;
+
+	    for(Contacto c: contactos) {
+	        if(c.getCelular().equals(numero)) {
+	            encontrado = c;
+	            break;
+	        }
+	    }
+
+	    return encontrado;
 	}
 
 	public boolean eliminarContacto(String numero) {
