@@ -51,7 +51,10 @@ public class Directorio {
 	}
 
 	public Contacto buscarContacto(String numero) {
+		
 		for (int i = 0; i < contactos.size(); i++) {
+			System.out.println("_____ Nueva busqueda_____ ");
+			System.out.println("Posicion: " + i);
 			Contacto c = contactos.get(i);
 			if (c.getCelular().equals(numero)) {
 				return c;
